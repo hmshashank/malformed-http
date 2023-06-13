@@ -1,0 +1,13 @@
+<Virtualhost *:443>
+    CustomLog "|/usr/local/akamai/abattery/bin/abattery_hup_handler abattery_proxy/malformed-http/malformed-http-access" default
+    ErrorLog "|/usr/local/akamai/abattery/bin/abattery_hup_handler abattery_proxy/malformed-http/malformed-http-error"
+    SSLEngine On
+    QS_LocRequestLimitDefault 300
+    ProxyPreserveHost On
+    ProxyRequests Off
+    ProxyAddHeaders On
+    ProxyTimeout 300
+    ServerName malformed-http.default.marble.appbattery.nss1.tn.akamai.com
+    ServerAlias malformed-http-fallback.default.marble.appbattery.nss1.tn.akamai.com
+    Include /usr/local/akamai/abattery/sites-active/malformed-http
+</VirtualHost>
